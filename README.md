@@ -1,16 +1,11 @@
 # PicToShare
 
-A new Flutter project.
+A basic Photo sharing platform.
+User can share photos and also view photos shared by other user .
+Profile settings is included.
+* Instead of Email Password sign-in a better option Google Sign-In is used so the user does not have to remember the password .*
+User can view photos but can only share if Phone no. is verified.
+Simple User schema is implemented on cloud firestore.
+Stream Builder is used to fetch updated photos list.
+Bottom Navigation is fully working but haven't set any other widgets.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
