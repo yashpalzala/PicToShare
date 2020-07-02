@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "898606557057",
+    "firebase_url": "https://pictoshare-97f06.firebaseio.com",
+    "project_id": "pictoshare-97f06",
+    "storage_bucket": "pictoshare-97f06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898606557057:android:16cfec368b67121861ea80",
+        "android_client_info": {
+          "package_name": "com.AppLai.PicToShare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898606557057-kndt7eb1m73k5i2gmb217blcsftg7ruo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.AppLai.PicToShare",
+            "certificate_hash": "7983dddd9639c28bf6b83668d809db725e5858fd"
+          }
+        },
+        {
+          "client_id": "898606557057-fihgi1ulir1u54v33ina7mbkrk2vt0tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUYo-GRGdVqZOiGpNF9CBhRsJSA1JAym0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898606557057-fihgi1ulir1u54v33ina7mbkrk2vt0tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
