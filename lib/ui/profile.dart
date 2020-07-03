@@ -173,14 +173,17 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text('Email : '),
                           new GestureDetector(
                             onTap: () {
-                              Scaffold.of(context).showSnackBar(SnackBar(
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
                                   backgroundColor: Colors.white,
                                   content: Text(
                                     'Sorry you cannot edit that !!',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w500),
-                                  )));
+                                  ),
+                                ),
+                              );
                             },
                             child: new Text(
                               userEmail,

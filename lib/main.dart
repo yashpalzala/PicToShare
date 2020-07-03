@@ -31,7 +31,8 @@ class MainScreen extends StatelessWidget {
         DeviceOrientation.portraitDown,
       ],
     );
-    return StreamBuilder(
+    
+     return StreamBuilder(
       stream: FirebaseAuth.instance.onAuthStateChanged,
       builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
         if (snapshot.connectionState ==
@@ -46,6 +47,6 @@ class MainScreen extends StatelessWidget {
           return DashBoardPage(email: snapshot.data.email);
         }
       },
-    );
+    ); 
   }
 }

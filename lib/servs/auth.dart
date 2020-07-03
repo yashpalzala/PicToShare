@@ -27,9 +27,10 @@ class AuthProvider {
           accessToken: (await account.authentication).accessToken,
         ),
       );
+       
       print('user info : ${res.user}');
 
-      if (res.user == null) return false;
+      if (res.user == null) return null;
       print(res.user.displayName);
       print(res.user.email);
       print(res.user.uid);
@@ -47,7 +48,7 @@ class AuthProvider {
     } catch (e) {
       print(e.message);
       print("Error logging with google");
-      return false;
+      return null;
     }
   }
 }

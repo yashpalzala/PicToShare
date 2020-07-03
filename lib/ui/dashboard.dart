@@ -1,7 +1,6 @@
 // this is main dahboard where user is redirected after signing in
 
 import 'package:PicToShare/servs/photostream.dart';
-import 'package:PicToShare/servs/users.dart';
 import 'package:PicToShare/ui/bottomnav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -47,28 +46,32 @@ class _DashBoardPageState extends State<DashBoardPage> {
 
   //<------------this is used to assign variables values from firestore------------->
 
-  exists() async {
-    Firestore.instance.collection('user').document(savedmail).get().then(
-      (DocumentSnapshot ds) {
-        print('savedmail: $savedmail');
-        bool isPhoneVer1 = ds.data['isPhoneVer'];
-        isPhoneVer = isPhoneVer1;
-        print('============$isPhoneVer');
-      },
-    );
-  }
+  
 
   @override
   void initState() {
     loadData();
-
+    
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    exists() {
+   Firestore.instance
+        .collection('user')
+        .document(widget.email)
+        .get()
+        .then((DocumentSnapshot ds) {
+      
+        isPhoneVer = ds.data['isPhoneVer'];
+        print('is phone no. verified : $isPhoneVer');
+      
+    });
+  }
+  exists();
     
-    exists();
+    
 //====== debug purpose=======
     print('savedmail: $savedmail');
     print('$savedmail');
@@ -207,7 +210,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         onPressed: () {
           print('is phone verified: $isPhoneVer');
 
-          isPhoneVer
+          isPhoneVer ?? true
 
               // if phone no. is verified iage selection is enabled
               ? getImage()

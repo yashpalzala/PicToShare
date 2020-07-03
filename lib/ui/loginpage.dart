@@ -1,6 +1,5 @@
 // implemented only google sign in through api . user does not have to remeber passwords
 //* All the commented part contains regular email sign-in fully working.
- 
 
 import 'package:PicToShare/ui/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -71,14 +70,32 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       onPressed: () async {
                         res = await AuthProvider().loginWithGoogle();
-                        if (res == null) print("error logging in with google");
-                        print('login page $res');
-                        Navigator.pushReplacement(
+
+                        print('checking res value: $res');
+                        if (res == null) {
+                          print("error logging in with google");
+                          Scaffold.of(context).showSnackBar(
+                            SnackBar(
+                              backgroundColor: Colors.white,
+                              content: Text(
+                                'Oops! cannot sign you in . Use google accounts for better experience',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          );
+                        } else {
+                          print('login page $res');
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DashBoardPage(
-                                      email: res,
-                                    )));
+                              builder: (context) => DashBoardPage(
+                                email: res,
+                              ),
+                            ),
+                          );
+                        }
                       },
                     ),
                   ),
@@ -103,7 +120,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
 
 /* @override
   Widget build(BuildContext context){
