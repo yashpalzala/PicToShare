@@ -22,10 +22,13 @@ class PhotoStream extends StatelessWidget {
                     subtitle: Material(
                         borderRadius: BorderRadius.circular(5),
                         elevation: 30,
-                        child: Image.network(
-                          document['url'],
-                          height: MediaQuery.of(context).size.height * 0.5,
-                          fit: BoxFit.contain,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom:8.0),
+                          child: Image.network(
+                            document['url'],
+                            height: MediaQuery.of(context).size.height * 0.5,
+                            fit: BoxFit.contain,
+                          ),
                         )),
                     title: Container(
                       color: Colors.white,

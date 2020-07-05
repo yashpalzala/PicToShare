@@ -29,14 +29,14 @@ class PhoneLoginScreen extends StatelessWidget {
             Firestore.instance.collection('user').document(email).updateData(
                 {'phoneverid': user.uid, 'phoneno': phone, 'isPhoneVer': true});
                 
-            /* Navigator.pushReplacement(
+             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => DashBoardPage(
                   email: email,
                 ),
               ),
-            ); */
+            ); 
           } else {
             print("Error");
           }
@@ -66,7 +66,7 @@ class PhoneLoginScreen extends StatelessWidget {
                   FlatButton(
                     child: Text("Confirm"),
                     textColor: Colors.white,
-                    color: Colors.blue,
+                    color: Colors.deepOrangeAccent,
                     onPressed: () async {
                       final code = _codeController.text.trim();
                       AuthCredential credential =

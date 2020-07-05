@@ -31,9 +31,11 @@ class MainScreen extends StatelessWidget {
         DeviceOrientation.portraitDown,
       ],
     );
+   
     
-     return StreamBuilder(
+      return StreamBuilder(
       stream: FirebaseAuth.instance.onAuthStateChanged,
+      
       builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
         if (snapshot.connectionState ==
             ConnectionState.waiting) //check for connection state
@@ -41,12 +43,17 @@ class MainScreen extends StatelessWidget {
         if (!snapshot.hasData ||
             snapshot.data == null) // checks if user is present or not
         {
+          print('Main screen Login page');
           return LoginPage();
-        } else {
+        } 
+        if(snapshot.data.isEmailVerified){
           print('main screen ${snapshot.data.email}');
           return DashBoardPage(email: snapshot.data.email);
         }
+        else {
+          return LoginPage();
+        }
       },
-    ); 
+    );  
   }
 }

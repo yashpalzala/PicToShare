@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -16,8 +15,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  File _image;
-
   bool _isEditingText = false;
   TextEditingController _editingControlleruserName;
 
@@ -34,7 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
         .then((DocumentSnapshot ds) {
       setState(() {
         userName = ds.data['username'];
-        userEmail = widget.email;
+        userEmail = ds.data['email'];
         uId = ds.data['uid'];
         print(userName);
         print(uId);
@@ -88,6 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   void initState() {
+    print('Profile ka initstate');
     loadData('photourl');
     _editingControlleruserName = TextEditingController(text: userName);
     initialValues();
@@ -127,9 +125,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: new SizedBox(
                             width: 130.0,
                             height: 130.0,
-                            child: (_image != null)
-                                ? Image.file(
-                                    _image,
+                            child: (url == null)
+                                ? Image.asset(
+                                    'assets/orangepixelated.jpg',
                                     fit: BoxFit.fill,
                                   )
                                 : Image.network(
